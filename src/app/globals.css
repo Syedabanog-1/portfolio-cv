@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌙 Theme Variables */
+:root {
+  --background: #020617; /* deep navy */
+  --foreground: #e2e8f0; /* soft gray-white */
+  --accent-blue: #3b82f6; /* blue-500 */
+  --accent-teal: #14b8a6; /* teal-500 */
+}
+
+/* Optional light mode (if needed later) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+}
+
+/* 🩵 Global Body Styling */
+body {
+  @apply antialiased text-[16px] leading-relaxed;
+  color: var(--foreground);
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ✨ Headings (use Poppins) */
+h1, h2, h3, h4, .title-font {
+  font-family: var(--font-poppins), sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* 🩵 Gradient Text Helper */
+.text-gradient {
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 🌈 Glow Utilities */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+.glow-teal {
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
+}
+
+/* 🖱️ Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--accent-blue), var(--accent-teal));
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+/* 💫 Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* ⚡ Utility layer overrides */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
